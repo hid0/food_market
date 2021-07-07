@@ -33,7 +33,9 @@ class GeneralPage extends StatelessWidget {
                   children: [
                     // ? this container to set title and subtitle
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: defaultMargin),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: defaultMargin,
+                      ),
                       width: double.infinity,
                       height: 100,
                       color: Colors.white,
@@ -43,13 +45,38 @@ class GeneralPage extends StatelessWidget {
                               ? Container(
                                   width: 24,
                                   height: 24,
-                                  margin: EdgeInsets.only(right: 26),
-                                  decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                          image: AssetImage(
-                                              'assets/back_arrow.png'))),
+                                  margin: const EdgeInsets.only(right: 26),
+                                  decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                      image:
+                                          AssetImage('assets/back_arrow.png'),
+                                    ),
+                                  ),
                                 )
-                              : SizedBox(),
+                              : const SizedBox(),
+                          // onBackButtonPressed != null
+                          //     ? Container(
+                          //         child: ConstrainedBox(
+                          //           constraints: const BoxConstraints.expand(),
+                          //           child: TextButton(
+                          //             onPressed: () {
+                          //               Navigator.pushReplacement(
+                          //                 context,
+                          //                 MaterialPageRoute(
+                          //                   builder: (context) =>
+                          //                       const SignInPage(),
+                          //                 ),
+                          //               );
+                          //             },
+                          //             style: TextButton.styleFrom(
+                          //               padding: const EdgeInsets.all(0.0),
+                          //             ),
+                          //             child:
+                          //                 Image.asset('assets/back_arrow.png'),
+                          //           ),
+                          //         ),
+                          //       )
+                          //     : const SizedBox(),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -75,7 +102,7 @@ class GeneralPage extends StatelessWidget {
                       width: double.infinity,
                       color: secondaryColor,
                     ),
-                    child ?? SizedBox() // !if child null show sizebox
+                    child ?? const SizedBox() // !if child null show sizebox
                   ],
                 ),
               ],

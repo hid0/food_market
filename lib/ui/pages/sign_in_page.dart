@@ -1,8 +1,13 @@
 part of 'pages.dart';
 
-class SignInPage extends StatelessWidget {
+class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
 
+  @override
+  _SignInPageState createState() => _SignInPageState();
+}
+
+class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     TextEditingController emailController = TextEditingController();
@@ -16,7 +21,8 @@ class SignInPage extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            margin: EdgeInsets.fromLTRB(defaultMargin, 26, defaultMargin, 6),
+            margin:
+                const EdgeInsets.fromLTRB(defaultMargin, 26, defaultMargin, 6),
             width: double.infinity,
             child: Text(
               "Email Address",
@@ -24,9 +30,10 @@ class SignInPage extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: defaultMargin),
+            margin: const EdgeInsets.symmetric(horizontal: defaultMargin),
             width: double.infinity,
-            padding: EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            // ignore: todo
             // TODO this show textbox input for email address
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
@@ -40,7 +47,8 @@ class SignInPage extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.fromLTRB(defaultMargin, 26, defaultMargin, 6),
+            margin:
+                const EdgeInsets.fromLTRB(defaultMargin, 26, defaultMargin, 6),
             width: double.infinity,
             child: Text(
               "Password",
@@ -48,14 +56,16 @@ class SignInPage extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: defaultMargin),
-            padding: EdgeInsets.symmetric(horizontal: 10),
+            margin: const EdgeInsets.symmetric(horizontal: defaultMargin),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             width: double.infinity,
+            // ignore: todo
             // TODO this show textbox input for password
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(color: Colors.black)),
             child: TextField(
+              obscureText: true,
               controller: passwordController,
               decoration: InputDecoration(
                   border: InputBorder.none,
@@ -67,23 +77,60 @@ class SignInPage extends StatelessWidget {
           Container(
             height: 45,
             width: double.infinity,
-            margin: EdgeInsets.only(top: 30),
-            padding: EdgeInsets.symmetric(horizontal: defaultMargin),
+            margin: const EdgeInsets.only(top: 30),
+            padding: const EdgeInsets.symmetric(horizontal: defaultMargin),
             child: isLoading
+                // ignore: dead_code
                 ? SpinKitFadingCircle(
                     size: 45,
                     color: primaryColor,
                   )
-                : ElevatedButton(
-                    style: loginBtn,
+                : TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: primary,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
                     onPressed: () {},
-                    child: TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          "Sign In",
-                          style: loginStyleBtn,
-                        ))),
-          )
+                    child: Text(
+                      "Sign In",
+                      style: loginStyleBtn,
+                    ),
+                  ),
+          ),
+          Container(
+            height: 45,
+            width: double.infinity,
+            margin: const EdgeInsets.only(top: 30),
+            padding: const EdgeInsets.symmetric(horizontal: defaultMargin),
+            child: isLoading
+                // ignore: dead_code
+                ? SpinKitFadingCircle(
+                    size: 45,
+                    color: primaryColor,
+                  )
+                : TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: grayColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SignUpPage(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      "Create New Account",
+                      style: registerStyleBtn,
+                    ),
+                  ),
+          ),
         ],
       ),
     );
