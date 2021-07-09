@@ -20,12 +20,6 @@ class _SignUpPageState extends State<SignUpPage> {
       subtitle: "Register and eat",
       onBackButtonPressed: () {
         Get.back();
-        // Navigator.pushReplacement(
-        //   context,
-        //   MaterialPageRoute(
-        //     builder: (context) => const SignInPage(),
-        //   ),
-        // );
       },
       child: Column(
         children: [
