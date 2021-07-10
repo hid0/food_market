@@ -41,41 +41,25 @@ class GeneralPage extends StatelessWidget {
                       child: Row(
                         children: [
                           onBackButtonPressed != null
-                              ? Container(
-                                  width: 24,
-                                  height: 24,
-                                  margin: const EdgeInsets.only(right: 26),
-                                  decoration: const BoxDecoration(
-                                    image: DecorationImage(
-                                      image:
-                                          AssetImage('assets/back_arrow.png'),
+                              ? GestureDetector(
+                                  onTap: () {
+                                    if (onBackButtonPressed != null) {
+                                      onBackButtonPressed!();
+                                    }
+                                  },
+                                  child: Container(
+                                    width: 24,
+                                    height: 24,
+                                    margin: const EdgeInsets.only(right: 26),
+                                    decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                        image:
+                                            AssetImage('assets/back_arrow.png'),
+                                      ),
                                     ),
                                   ),
                                 )
                               : const SizedBox(),
-                          // onBackButtonPressed != null
-                          //     ? Container(
-                          //         child: ConstrainedBox(
-                          //           constraints: const BoxConstraints.expand(),
-                          //           child: TextButton(
-                          //             onPressed: () {
-                          //               Navigator.pushReplacement(
-                          //                 context,
-                          //                 MaterialPageRoute(
-                          //                   builder: (context) =>
-                          //                       const SignInPage(),
-                          //                 ),
-                          //               );
-                          //             },
-                          //             style: TextButton.styleFrom(
-                          //               padding: const EdgeInsets.all(0.0),
-                          //             ),
-                          //             child:
-                          //                 Image.asset('assets/back_arrow.png'),
-                          //           ),
-                          //         ),
-                          //       )
-                          //     : const SizedBox(),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -83,16 +67,19 @@ class GeneralPage extends StatelessWidget {
                               Text(
                                 title,
                                 style: GoogleFonts.poppins(
-                                    fontSize: 22, fontWeight: FontWeight.w500),
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
                               Text(
                                 subtitle,
                                 style: GoogleFonts.poppins(
-                                    color: grayColor,
-                                    fontWeight: FontWeight.w300),
-                              )
+                                  color: grayColor,
+                                  fontWeight: FontWeight.w300,
+                                ),
+                              ),
                             ],
-                          )
+                          ),
                         ],
                       ),
                     ),

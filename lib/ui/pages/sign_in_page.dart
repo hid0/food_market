@@ -21,8 +21,12 @@ class _SignInPageState extends State<SignInPage> {
       child: Column(
         children: [
           Container(
-            margin:
-                const EdgeInsets.fromLTRB(defaultMargin, 26, defaultMargin, 6),
+            margin: const EdgeInsets.fromLTRB(
+              defaultMargin,
+              26,
+              defaultMargin,
+              6,
+            ),
             width: double.infinity,
             child: Text(
               "Email Address",
@@ -36,14 +40,16 @@ class _SignInPageState extends State<SignInPage> {
             // ignore: todo
             // TODO this show textbox input for email address
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: Colors.black)),
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: Colors.black),
+            ),
             child: TextField(
               controller: emailController,
               decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintStyle: grayFont,
-                  hintText: "Input your email"),
+                border: InputBorder.none,
+                hintStyle: grayFont,
+                hintText: "Input your email",
+              ),
             ),
           ),
           Container(
@@ -118,12 +124,13 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const SignUpPage(),
-                        ),
-                      );
+                      // Navigator.pushReplacement(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => const SignUpPage(),
+                      //   ),
+                      // );
+                      Get.to(SignUpPage());
                     },
                     child: Text(
                       "Create New Account",

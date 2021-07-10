@@ -8,3 +8,4 @@ import 'package:google_fonts/google_fonts.dart';
 part 'general_page.dart';
 part 'sign_in_page.dart';
 part 'sign_up_page.dart';
+part 'address_page.dart';
